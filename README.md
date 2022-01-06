@@ -1,8 +1,6 @@
-## @lujs/mvp
+<h1 align = "center">@lujs/mvp</h1>
 
 <div align="center">
-
-A high-quality & reliable React Hooks library.
 
 ![NPM version](https://img.shields.io/npm/v/@lujs/mvp.svg?style=flat)
 ![NPM downloads](https://img.shields.io/npm/dm/@lujs/mvp.svg?style=flat)
@@ -10,10 +8,11 @@ A high-quality & reliable React Hooks library.
 ![GitHub](https://img.shields.io/npm/l/@lujs/mvp)
 ![Coverage line](https://github.com/lulusir/mvp/coverage/badge-lines.svg)
 
-[文档](https://github.com/lulusir/mvp)
+[文档](https://raw.githubusercontent.com/lulusir/mvp/main/coverage/badge-lines.svg)
 
 </div>
-为了进一步实现整洁架构，使用 mvp 的方式组织你的前端代码，让项目更加清晰
+
+> 为了进一步实现整洁架构，使用 mvp 的方式组织你的前端代码，让项目更加清晰
 
 - Model，一般是要在界面上显示需要的数据，或者临时数据
 
