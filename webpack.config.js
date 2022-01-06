@@ -27,9 +27,9 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
-  externals: {
-    react: 'react',
-  },
+  // externals: {
+  //   react: 'react',
+  // },
   output: {
     clean: true,
     filename: 'index.js',
