@@ -27,4 +27,5 @@ module.exports = {
 
   // The directory where Jest should output its coverage files
   coverageDirectory: 'coverage',
+  coverageReporters: ['json-summary', 'text', 'lcov'],
 };
