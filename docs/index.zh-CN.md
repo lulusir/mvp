@@ -12,7 +12,7 @@ hero:
 
 为了进一步实现整洁架构，使用 mvp 的方式组织你的前端代码，让项目更加清晰
 
-<img src="/mvp.png" width = "600"  alt="mvp" align=center />
+<img src="https://lulusir.github.io/mvp-docs/mvp.png" width = "600"  alt="mvp" align=center />
 
 - Model，一般是要在界面上显示需要的数据，或者临时数据
 
@@ -22,6 +22,6 @@ hero:
 
 ## 整洁架构
 
- <img src="/CleanArchitecture.jpg" width = "600"  alt="整洁架构" align=center />
+ <img src="https://lulusir.github.io/mvp-docs/CleanArchitecture.jpg" width = "600"  alt="整洁架构" align=center />
 
 来源于 Bob 大叔的一篇[文章](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)

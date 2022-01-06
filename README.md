@@ -3,7 +3,6 @@
 <div align="center">
 
 ![NPM version](https://img.shields.io/npm/v/@lujs/mvp.svg?style=flat)
-![NPM downloads](https://img.shields.io/npm/dm/@lujs/mvp.svg?style=flat)
 ![Gzip size](https://img.badgesize.io/https:/unpkg.com/@lujs/mvp/dist/index.js?label=gzip%20size&compression=gzip)
 ![GitHub](https://img.shields.io/npm/l/@lujs/mvp)
 ![Coverage line](https://raw.githubusercontent.com/lulusir/mvp/main/coverage/badge-lines.svg)
