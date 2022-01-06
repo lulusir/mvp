@@ -6,6 +6,7 @@ export default defineConfig({
   logo: 'logo.png',
   locales: [['zh-CN', '中文']],
   outputPath: 'docs-dist',
-  publicPath: '/mvp-docs/'
+  publicPath: '/mvp-docs/',
+  base: '/mvp-docs/'
   // more config: https://d.umijs.org/config
 });
