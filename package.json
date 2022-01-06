@@ -16,7 +16,7 @@
     "start": "webpack --watch ",
     "test": "jest --watch",
     "test:badges": "jest --coverage && jest-coverage-badges",
-    "prepublishOnly": "npm run build && np --no-cleanup --yolo --no-publish"
+    "prepublishOnly": "npm run build && np --branch main --no-cleanup --yolo --no-publish"
   },
   "lint-staged": {
     "*.{js,jsx,less,md,json}": [
