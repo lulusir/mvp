@@ -1,7 +1,7 @@
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
-const BundleAnalyzerPlugin =
-  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin =
+//   require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: './src/index.ts',
@@ -15,7 +15,6 @@ module.exports = {
       }),
     ],
   },
-  // target: "node",
   module: {
     rules: [
       {
@@ -31,10 +30,6 @@ module.exports = {
   externals: {
     react: 'react',
   },
-  // devtool: 'source-map',
-  // experiments: {
-  //   outputModule: true,
-  // },
   output: {
     clean: true,
     filename: 'index.js',
@@ -44,9 +39,5 @@ module.exports = {
       name: '@lujs/mvp',
       type: 'umd',
     },
-    // environment: { module: true },
-    // library: {
-    //   type: 'module',
-    // },
   },
 };

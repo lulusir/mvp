@@ -70,8 +70,6 @@
     "@lujs/react-mvp-adaptor": "^0.0.2",
     "clone": "^2.1.2",
     "immer": "^9.0.7",
-    "react": "^17.0.2",
-    "reflect-metadata": "^0.1.13",
-    "tsyringe": "^4.6.0"
+    "reflect-metadata": "^0.1.13"
   }
 }
