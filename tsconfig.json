@@ -40,7 +40,7 @@
     "typings",
     "**/__test__",
     "test",
-    "docs",
+    "docs-src",
     "tests"
   ]
 }
