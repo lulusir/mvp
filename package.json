@@ -67,7 +67,7 @@
     "yorkie": "^2.0.0"
   },
   "dependencies": {
-    "@lujs/di": "^1.0.6",
+    "@lujs/di": "^1.0.7",
     "@lujs/react-mvp-adaptor": "^0.0.2",
     "clone": "^2.1.2",
     "immer": "^9.0.7",
