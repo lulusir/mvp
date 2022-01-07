@@ -5,7 +5,7 @@ export default defineConfig({
   mode: 'site',
   logo: 'logo.png',
   locales: [['zh-CN', '中文']],
-  outputPath: 'docs-dist',
+  outputPath: 'mvp-docs',
   publicPath: '/mvp-docs/',
   base: '/mvp-docs/'
   // more config: https://d.umijs.org/config
