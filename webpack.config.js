@@ -1,11 +1,11 @@
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
-// const BundleAnalyzerPlugin =
-//   require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: './src/index.ts',
-  // plugins: [new BundleAnalyzerPlugin()],
+  plugins: [new BundleAnalyzerPlugin()],
   mode: 'production',
   optimization: {
     minimize: true,
@@ -28,8 +28,7 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   externals: {
-    // react: 'react',
-    // '@lujs/di': '@lujs/di',
+    '@lujs/di': '@lujs/di',
   },
   output: {
     clean: true,
