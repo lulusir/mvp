@@ -109,43 +109,18 @@ describe('Test model', () => {
     expect(m.setState).toBeDefined();
   });
 
-  it('Only use the setState method to modify state, with obj 2', () => {
-    const m = new M();
-    const oldS = m.state;
-    const o1 = makeState();
+  it('change old state will throw error', () => {
+    const fn = () => {
+      const m = new M();
+      const oldS = m.state;
+      const o1 = makeState();
 
-    m.setState(o1);
-    o1.a.b.c = [];
+      m.setState(o1);
 
-    expect(m.state).not.toBe(o1);
-    expect(m.state.a.b.c).toEqual([1, 2, 3]);
-    expect(m.setState).toBeDefined();
-  });
-
-  it('if setState target not change, will not update state', () => {
-    const m = new M();
-    const oldS = m.state;
-    const o1 = makeState();
-
-    m.setState(o1);
-    o1.a.b.c = [];
-
-    expect(m.state).not.toStrictEqual(o1);
-    expect(m.state).toStrictEqual(oldS);
-    expect(m.state.a.b.c).toEqual([1, 2, 3]);
-    expect(m.setState).toBeDefined();
-  });
-
-  it('Only use the setState method to modify state, with obj 3', () => {
-    const m = new M();
-    const oldS = m.state;
-    const o1 = makeState();
-    o1.a.b.c = [];
-    m.setState(o1);
-
-    expect(m.state).not.toBe(o1);
-    expect(m.state.a.b.c).toEqual([]);
-    expect(m.setState).toBeDefined();
+      // change old state will throw error
+      o1.a.b.c = [];
+    };
+    expect(fn).toThrow();
   });
 
   it('Only use the setState method to modify state, with function', () => {
@@ -153,16 +128,16 @@ describe('Test model', () => {
     const oldS = m.state;
     m.setState((s) => {
       // eslint-disable-next-line no-param-reassign
-      s.a.b.c = [1, 2, 3];
+      s.a.b.c = [1];
     });
 
     expect(oldS).not.toBe(m.state);
-    expect(m.state.a.b.c).toEqual([1, 2, 3]);
+    expect(m.state.a.b.c).toEqual([1]);
     expect(m.setState).toBeDefined();
   });
+
   it('Only use the setState method to modify state, with function', () => {
     const m = new M();
-    const oldS = m.state;
     m.setState((s) => {
       // eslint-disable-next-line no-param-reassign
       s.a.b.c = [1, 2, 3, 4];

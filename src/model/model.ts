@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-dupe-class-members */
 import produce, { freeze, Immutable, setAutoFreeze } from 'immer';
-import cloneDeep from 'clone';
+// import cloneDeep from 'clone';
 import { devtools } from '../utils/devtool';
 
 setAutoFreeze(true);
@@ -34,10 +34,7 @@ export abstract class Model<S = any> {
     if (typeof fn === 'function') {
       newState = produce(this._state, fn as unknown as UpdateFn<S>);
     } else {
-      // 如果传入的对象和源对象一样，就不需要更改
-      const clone = cloneDeep(fn);
-      newState = freeze(clone, true);
-      newState = clone;
+      newState = freeze(fn, true);
     }
 
     this._state = newState;
