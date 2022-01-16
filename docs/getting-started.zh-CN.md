@@ -64,10 +64,23 @@ const Name = () => {
   return (
     <div>
       name: {state.name}
-      <button onClick={presenter.changeName()}>change name</button>
+      <button onClick={presenter.changeName}>change name</button>
     </div>
   );
 };
 
 export default Name;
+```
+
+## tsconfig.json
+
+设置 tsconfig.json
+
+```json
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
+}
 ```

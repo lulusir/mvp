@@ -5,7 +5,7 @@ specifiers:
   '@babel/plugin-proposal-decorators': ^7.16.7
   '@babel/preset-env': ^7.16.5
   '@babel/preset-typescript': ^7.16.5
-  '@lujs/di': ^1.0.7
+  '@lujs/di': ^1.0.8
   '@lujs/react-mvp-adaptor': ^0.0.2
   '@testing-library/jest-dom': ^5.16.1
   '@testing-library/react': ^12.1.2
@@ -49,7 +49,7 @@ specifiers:
   yorkie: ^2.0.0
 
 dependencies:
-  '@lujs/di': 1.0.7
+  '@lujs/di': 1.0.8
   clone: 2.1.2
   immer: 9.0.12
   reflect-metadata: 0.1.13
@@ -1622,15 +1622,15 @@ packages:
       chalk: 4.1.2
     dev: true
 
-  /@lujs/di/1.0.7:
-    resolution: {integrity: sha512-UhaFz7r3IDoz6E9qbVxccCl/u3vXY2GJbdvmsZQtE9LHixGXe6KYB4RYWARUc/wD0gpNqUTJTRdlixwq1dpegQ==}
+  /@lujs/di/1.0.8:
+    resolution: {integrity: sha512-GMuiuCRt3BXqy+/Ybjwg432IyUmDDRyfo45A8Idpg5v4GVtdEhvt3Q3GoOhmatiZ2mioQKsORKvGF6wXfvtvcg==}
     dependencies:
       tslib: 2.3.1
 
   /@lujs/mvp/0.0.2:
     resolution: {integrity: sha512-vER7WbDIN8i9QrPlbG8L4rIbHQBWA7BS8siKaruqmYlaTH822Xi8sX8MQ+bHA3PrX77Hb7oahWOEFn/sbfaSJA==}
     dependencies:
-      '@lujs/di': 1.0.7
+      '@lujs/di': 1.0.8
       clone: 2.1.2
       immer: 9.0.12
       react: 17.0.2
@@ -1641,7 +1641,7 @@ packages:
   /@lujs/react-mvp-adaptor/0.0.2:
     resolution: {integrity: sha512-ATOR5ICk25QJDdAArh0ZSo8U4JgxrjAo4SR4SG+Rs7+XvfkJ0ZNthBLOIo9zsaCv4+Wkd0+UvWMW7Q0zSzAr8w==}
     dependencies:
-      '@lujs/di': 1.0.7
+      '@lujs/di': 1.0.8
       '@lujs/mvp': 0.0.2
       react: 17.0.2
       reflect-metadata: 0.1.13
