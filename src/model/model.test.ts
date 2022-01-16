@@ -39,6 +39,64 @@ describe('Test model', () => {
     expect(fn).toThrow();
   });
 
+  it('Only use the setState method to modify state deep', () => {
+    const m = new M();
+
+    const fn = () => {
+      // @ts-ignore：错误执行
+      m.state.a = {};
+    };
+    expect(fn).toThrow();
+  });
+
+  it('Only use the setState method to modify state, when setState pass obj', () => {
+    const m = new M();
+    m.setState(makeState());
+
+    const fn = () => {
+      // @ts-ignore：错误执行
+      m.state = {};
+    };
+    expect(fn).toThrow();
+  });
+
+  it('Only use the setState method to modify state, when setState pass obj, deep', () => {
+    const m = new M();
+    m.setState(makeState());
+
+    const fn = () => {
+      // @ts-ignore：错误执行
+      m.state.a = {};
+    };
+    expect(fn).toThrow();
+  });
+
+  it('Only use the setState method to modify state, when setState pass function', () => {
+    const m = new M();
+    m.setState((s) => {
+      s = makeState();
+    });
+
+    const fn = () => {
+      // @ts-ignore：错误执行
+      m.state = {};
+    };
+    expect(fn).toThrow();
+  });
+
+  it('Only use the setState method to modify state, when setState pass function, deep', () => {
+    const m = new M();
+    m.setState((s) => {
+      s = makeState();
+    });
+
+    const fn = () => {
+      // @ts-ignore：错误执行
+      m.state.a = {};
+    };
+    expect(fn).toThrow();
+  });
+
   it('Only use the setState method to modify state, with obj 1', () => {
     const m = new M();
     const oldS = m.state;
@@ -63,6 +121,21 @@ describe('Test model', () => {
     expect(m.state.a.b.c).toEqual([1, 2, 3]);
     expect(m.setState).toBeDefined();
   });
+
+  it('if setState target not change, will not update state', () => {
+    const m = new M();
+    const oldS = m.state;
+    const o1 = makeState();
+
+    m.setState(o1);
+    o1.a.b.c = [];
+
+    expect(m.state).not.toStrictEqual(o1);
+    expect(m.state).toStrictEqual(oldS);
+    expect(m.state.a.b.c).toEqual([1, 2, 3]);
+    expect(m.setState).toBeDefined();
+  });
+
   it('Only use the setState method to modify state, with obj 3', () => {
     const m = new M();
     const oldS = m.state;
