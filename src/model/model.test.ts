@@ -173,4 +173,108 @@ describe('Test model', () => {
       const m = new M1();
     }).toThrowError();
   });
+
+  it('subscribe, triggered when state is modified', (done) => {
+    const m = new M();
+    let count = 0;
+    m.subscribe((state) => {
+      count += 1;
+    });
+    setTimeout(() => {
+      expect(count).toBe(0);
+      done();
+    }, 0);
+  });
+
+  it('subscribe, triggered when state is modified 1', (done) => {
+    const m = new M();
+    let count = 0;
+    m.subscribe((state) => {
+      console.log(state, '==state');
+      count += 1;
+      expect(state.a.b.c).toEqual([]);
+    });
+    m.setState((s) => {
+      s.a.b.c = [];
+    });
+    setTimeout(() => {
+      expect(count).toBe(1);
+      done();
+    }, 0);
+  });
+
+  it('subscribe, triggered when state is modified 2', (done) => {
+    const m = new M();
+    let count = 0;
+    m.subscribe((state) => {
+      count += 1;
+      expect(state.a.b.c).toEqual([]);
+    });
+    m.subscribe((state) => {
+      count += 1;
+      expect(state.a.b.c).toEqual([]);
+    });
+
+    m.setState((s) => {
+      s.a.b.c = [];
+    });
+
+    setTimeout(() => {
+      expect(count).toBe(2);
+      done();
+    }, 0);
+  });
+  it('unsubscribe', (done) => {
+    const m = new M();
+    let count = 0;
+    const s = m.subscribe((state) => {
+      count += 1;
+      expect(state.a.b.c).toEqual([]);
+    });
+    s.unsubscribe();
+
+    m.subscribe((state) => {
+      count += 1;
+      expect(state.a.b.c).toEqual([]);
+    });
+
+    m.setState((s) => {
+      s.a.b.c = [];
+    });
+
+    setTimeout(() => {
+      expect(count).toBe(1);
+      done();
+    }, 0);
+  });
+
+  it('unsubscribe', (done) => {
+    const m = new M();
+    let count = 0;
+    const s = m.subscribe((state) => {
+      count += 1;
+      expect(state.a.b.c).toEqual([]);
+    });
+
+    m.setState((s) => {
+      s.a.b.c = [];
+    });
+
+    setTimeout(() => {
+      expect(count).toBe(1);
+
+      m.setState((s) => {
+        s.a.b.c = [];
+      });
+      expect(count).toBe(2);
+
+      s.unsubscribe();
+      m.setState((s) => {
+        s.a.b.c = [];
+      });
+      expect(count).toBe(2);
+
+      done();
+    }, 0);
+  });
 });

@@ -8,13 +8,18 @@ const mockExtension = {
 };
 
 describe('not install redux devtool', () => {
+  beforeEach(() => {
+    entry.useDevTool = false;
+  });
+
   it('connect ', () => {
     expect(devtools.connect()).toBeUndefined();
     expect(devtools.instance).toBeNull();
   });
 });
+
 describe('entry not use devtool', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     entry.useDevTool = false;
     Object.defineProperty(window, '__REDUX_DEVTOOLS_EXTENSION__', {
       writable: true,
@@ -38,7 +43,7 @@ describe('entry not use devtool', () => {
 });
 
 describe('install redux devtool', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     entry.useDevTool = true;
     Object.defineProperty(window, '__REDUX_DEVTOOLS_EXTENSION__', {
       writable: true,

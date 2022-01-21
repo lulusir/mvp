@@ -2,6 +2,7 @@
 /* eslint-disable no-dupe-class-members */
 import produce, { freeze, Immutable, setAutoFreeze } from 'immer';
 // import cloneDeep from 'clone';
+import EventEmitter from 'eventemitter3';
 import { devtools } from '../utils/devtool';
 
 setAutoFreeze(true);
@@ -9,8 +10,13 @@ interface UpdateFn<S> {
   (state: S): void;
 }
 
+const ModelAction = {
+  modelChange: 'modelChange',
+};
 export abstract class Model<S = any> {
   private _state!: S;
+
+  private __emitter = new EventEmitter();
 
   get state(): S {
     if (this._state === undefined) {
@@ -38,6 +44,23 @@ export abstract class Model<S = any> {
     }
 
     this._state = newState;
-    devtools.send(this.state, this.constructor.name);
+
+    devtools.send(this._state, this.constructor.name);
+
+    this.__emitter.emit(ModelAction.modelChange, this._state);
+  }
+
+  /**
+   * 通知状态更新
+   * @param callback
+   * @returns
+   */
+  subscribe(callback: (state: S) => void) {
+    this.__emitter.on(ModelAction.modelChange, callback);
+    return {
+      unsubscribe: () => {
+        this.__emitter.off(ModelAction.modelChange, callback);
+      },
+    };
   }
 }

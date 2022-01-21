@@ -9,6 +9,10 @@ export abstract class Presenter<M> {
     return model.state;
   }
 
+  get state() {
+    return this.getState();
+  }
+
   updateView() {
     throw Error('必须使用useController 绑定controller：');
   }
@@ -21,5 +25,12 @@ export abstract class Presenter<M> {
   __destroy() {
     const model: P<M> = Reflect.get(this, 'model');
     devtools.remove(model.constructor.name);
+  }
+
+  __useAutoUpdate() {
+    const model: P<M> = Reflect.get(this, 'model');
+    model.subscribe(() => {
+      this.updateView();
+    });
   }
 }

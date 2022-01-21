@@ -64,11 +64,56 @@ describe('Presenter', () => {
     expect(p.__destroy).toBeDefined();
   });
 
+  it('state', () => {
+    const m = new M();
+    const p = new TestP(m);
+    expect(p.getState()).toBe(m.state);
+    expect(p.state).toBe(m.state);
+    expect(p.updateView).toBeDefined();
+    expect(p.__init).toBeDefined();
+    expect(p.__destroy).toBeDefined();
+  });
+
   it('updateView', () => {
     const m = new M();
     const p = new TestP(m);
     expect(p.updateView).toThrowError();
   });
+
+  it('__useAutoUpdate', () => {
+    const m = new M();
+    const p = new TestP(m);
+    let count = 0;
+    p.updateView = () => {
+      count += 1;
+    };
+    p.__useAutoUpdate();
+
+    m.setState((s) => {
+      s.a.b.c.push(1);
+    });
+
+    expect(count).toBe(1);
+  });
+
+  it('__useAutoUpdate, then updateVIew', () => {
+    const m = new M();
+    const p = new TestP(m);
+    let count = 0;
+    p.updateView = () => {
+      count += 1;
+    };
+    p.__useAutoUpdate();
+
+    m.setState((s) => {
+      s.a.b.c.push(1);
+    });
+    expect(count).toBe(1);
+    p.updateView();
+
+    expect(count).toBe(2);
+  });
+
   it('__init', () => {
     const m = new M();
     const p = new TestP(m);

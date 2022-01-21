@@ -33,7 +33,18 @@ export class NamePresenter extends Presenter<NameModel> {
 
 ## Method
 
-| 参数       | 说明                  | 类型                | 默认值 |
-| ---------- | --------------------- | ------------------- | ------ |
-| getState   | 返回 model 中的 state | () : Model['state'] |        |
-| updateView | 更新 view 的方法      | () : void           |        |
+| 参数       | 说明                         | 类型                | 默认值 |
+| ---------- | ---------------------------- | ------------------- | ------ |
+| getState   | 返回 model 中的 state        | () : Model['state'] |        |
+| updateView | 更新 view 的方法             | () : void           |        |
+| state      | getter 返回 model 中的 state | getter              |        |
+
+#### PresenterFactor
+
+Presenter 构造工厂
+
+返回 Presenter 的实例化
+
+```
+const p = PresenterFactor.get<NamePresenter>(NamePresenter);
+```

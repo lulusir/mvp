@@ -31,5 +31,7 @@ module.exports = {
     ],
     'no-useless-constructor': 'off',
     'no-empty-function': 'warn',
+    'max-classes-per-file': 'off',
+    'no-param-reassign': 'off',
   },
 };

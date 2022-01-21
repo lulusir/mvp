@@ -5,7 +5,7 @@ specifiers:
   '@babel/plugin-proposal-decorators': ^7.16.7
   '@babel/preset-env': ^7.16.5
   '@babel/preset-typescript': ^7.16.5
-  '@lujs/di': ^1.0.8
+  '@lujs/di': ^1.0.9
   '@lujs/react-mvp-adaptor': ^0.0.2
   '@testing-library/jest-dom': ^5.16.1
   '@testing-library/react': ^12.1.2
@@ -21,7 +21,6 @@ specifiers:
   babel-jest: ^27.4.5
   babel-plugin-lodash: ^3.3.4
   clean-webpack-plugin: ^4.0.0
-  clone: ^2.1.2
   declaration-bundler-webpack-plugin: ^1.0.3
   dumi: ^1.0.13
   eslint: ^8.5.0
@@ -29,6 +28,7 @@ specifiers:
   eslint-config-prettier: ^8.3.0
   eslint-plugin-import: ^2.25.3
   eslint-plugin-prettier: ^4.0.0
+  eventemitter3: ^4.0.7
   immer: ^9.0.7
   jest: ^27.4.5
   jest-coverage-badges: ^1.1.2
@@ -49,8 +49,8 @@ specifiers:
   yorkie: ^2.0.0
 
 dependencies:
-  '@lujs/di': 1.0.8
-  clone: 2.1.2
+  '@lujs/di': 1.0.9
+  eventemitter3: 4.0.7
   immer: 9.0.12
   reflect-metadata: 0.1.13
 
@@ -1622,15 +1622,15 @@ packages:
       chalk: 4.1.2
     dev: true
 
-  /@lujs/di/1.0.8:
-    resolution: {integrity: sha512-GMuiuCRt3BXqy+/Ybjwg432IyUmDDRyfo45A8Idpg5v4GVtdEhvt3Q3GoOhmatiZ2mioQKsORKvGF6wXfvtvcg==}
+  /@lujs/di/1.0.9:
+    resolution: {integrity: sha512-SuJrYak67FRyxXJiwdOi4NtyGD5bBez8oHKspvScVbjTQMYmNze0UKzm9Mj//1o+ZiebbGThAnqO2XWPgBplaQ==}
     dependencies:
       tslib: 2.3.1
 
   /@lujs/mvp/0.0.2:
     resolution: {integrity: sha512-vER7WbDIN8i9QrPlbG8L4rIbHQBWA7BS8siKaruqmYlaTH822Xi8sX8MQ+bHA3PrX77Hb7oahWOEFn/sbfaSJA==}
     dependencies:
-      '@lujs/di': 1.0.8
+      '@lujs/di': 1.0.9
       clone: 2.1.2
       immer: 9.0.12
       react: 17.0.2
@@ -1641,7 +1641,7 @@ packages:
   /@lujs/react-mvp-adaptor/0.0.2:
     resolution: {integrity: sha512-ATOR5ICk25QJDdAArh0ZSo8U4JgxrjAo4SR4SG+Rs7+XvfkJ0ZNthBLOIo9zsaCv4+Wkd0+UvWMW7Q0zSzAr8w==}
     dependencies:
-      '@lujs/di': 1.0.8
+      '@lujs/di': 1.0.9
       '@lujs/mvp': 0.0.2
       react: 17.0.2
       reflect-metadata: 0.1.13
@@ -3745,6 +3745,7 @@ packages:
   /clone/2.1.2:
     resolution: {integrity: sha1-G39Ln1kfHo+DZwQBYANFoCiHQ18=}
     engines: {node: '>=0.8'}
+    dev: true
 
   /co/4.6.0:
     resolution: {integrity: sha1-bqa989hTrlTMuOR7+gvz+QMfsYQ=}
@@ -4743,6 +4744,10 @@ packages:
     resolution: {integrity: sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /eventemitter3/4.0.7:
+    resolution: {integrity: sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==}
+    dev: false
 
   /events/3.3.0:
     resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==}
