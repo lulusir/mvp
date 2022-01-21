@@ -29,8 +29,12 @@ export abstract class Presenter<M> {
 
   __useAutoUpdate() {
     const model: P<M> = Reflect.get(this, 'model');
-    model.subscribe(() => {
+    const { unsubscribe } = model.subscribe(() => {
       this.updateView();
     });
+
+    return {
+      unsubscribe,
+    };
   }
 }
