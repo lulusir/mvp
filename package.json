@@ -2,7 +2,7 @@
   "name": "@lujs/mvp",
   "author": "lujs",
   "license": "MIT",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Frond end MVP framework",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
