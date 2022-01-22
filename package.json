@@ -72,8 +72,8 @@
   },
   "dependencies": {
     "@lujs/di": "1.1.1",
-    "eventemitter3": "^4.0.7",
-    "immer": "^9.0.7",
-    "reflect-metadata": "^0.1.13"
+    "eventemitter3": "4.0.7",
+    "immer": "9.0.7",
+    "reflect-metadata": "0.1.13"
   }
 }
