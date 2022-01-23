@@ -71,7 +71,7 @@
     "yorkie": "^2.0.0"
   },
   "dependencies": {
-    "@lujs/di": "1.1.2",
+    "@lujs/di": "1.1.3",
     "eventemitter3": "4.0.7",
     "immer": "9.0.7",
     "reflect-metadata": "0.1.13"
