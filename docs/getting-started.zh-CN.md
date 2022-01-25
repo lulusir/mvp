@@ -9,7 +9,7 @@ nav:
 ## install
 
 ```
-npm install @lujs/mvp @lujs/react-mvp-adaptor --save-dev
+npm install @lujs/mvp @lujs/react-mvp-adaptor --save
 ```
 
 or

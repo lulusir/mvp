@@ -9,6 +9,8 @@
 
 </div>
 
+[Docs](https://lulusir.github.io/mvp/getting-started)
+
 <h2 align = "center"> 整洁架构</h2>
 
 - 独立于框架。支持 vue react
@@ -38,7 +40,7 @@
 ## install
 
 ```
-npm install @lujs/mvp @lujs/react-mvp-adaptor --save-dev
+npm install @lujs/mvp @lujs/react-mvp-adaptor --save
 ```
 
 or
@@ -74,12 +76,12 @@ export class NameModel extends Model<IViewState> {
 import { Presenter, injectable } from '@lujs/mvp';
 @injectable()
 export class NamePresenter extends Presenter<NameModel> {
-  constructor(private readonly model: OrderModel) {
+  constructor(protected readonly model: OrderModel) {
     super();
   }
 
   changeName() {
-    this.model.setState('aha'); // api of set model state
+    this.setState('aha'); // api of set model state
     this.updateView(); // api of update view
   }
 }
