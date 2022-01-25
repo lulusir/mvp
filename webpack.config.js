@@ -29,6 +29,9 @@ module.exports = {
   },
   externals: {
     '@lujs/di': '@lujs/di',
+    eventemitter3: 'eventemitter3',
+    immer: 'immer',
+    'reflect-metadata': 'reflect-metadata',
   },
   output: {
     clean: true,

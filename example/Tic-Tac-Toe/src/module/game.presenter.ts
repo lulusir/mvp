@@ -1,5 +1,4 @@
-import { injectable } from '@lujs/di';
-import { Presenter, entry } from '@lujs/mvp';
+import { Presenter, entry, injectable } from '@lujs/mvp';
 import { GameModel, ISquares } from './game.model';
 
 @injectable()

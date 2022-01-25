@@ -12,7 +12,7 @@ class IndexModel extends Model<{ loading: boolean }> {
 
 @injectable()
 class IndexPresenter extends Presenter<IndexModel> {
-  constructor(private model: IndexModel) {
+  constructor(protected model: IndexModel) {
     super();
   }
 

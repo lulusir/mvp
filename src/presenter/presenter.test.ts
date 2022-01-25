@@ -49,7 +49,7 @@ class M extends Model<IViewState> {
 }
 
 class TestP extends Presenter<M> {
-  constructor(private model: M) {
+  constructor(protected model: M) {
     super();
   }
 }
