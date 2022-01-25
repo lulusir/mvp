@@ -21,9 +21,8 @@
   },
   "dependencies": {
     "@ant-design/pro-layout": "^6.5.0",
-    "@lujs/di": "^1.0.7",
-    "@lujs/mvp": "^0.0.6",
-    "@lujs/react-mvp-adaptor": "^0.0.4",
+    "@lujs/mvp": "^0.2.1",
+    "@lujs/react-mvp-adaptor": "^0.3.2",
     "react": "17.x",
     "react-dom": "17.x",
     "umi": "^3.5.20"

@@ -3,18 +3,16 @@ import { GameModel, ISquares } from './game.model';
 
 @injectable()
 export class GamePresenter extends Presenter<GameModel> {
-  constructor(private model: GameModel) {
+  constructor(protected model: GameModel) {
     super();
   }
 
   fall(i: number) {
-    console.log(i, '==i');
     // const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const history = this.model.state.history.slice(
       0,
       this.model.state.stepNumber + 1,
     );
-    console.log(history, 'history');
     const current = history[history.length - 1];
     const squares = [...current.squares];
 
@@ -29,13 +27,11 @@ export class GamePresenter extends Presenter<GameModel> {
 
     squares[i] = this.model.state.xIsNext ? 'X' : 'O';
 
-    console.log(squares, 'squares');
-    this.model.setState((s) => {
+    this.setState((s) => {
       s.history = history.concat({ squares });
       s.stepNumber = history.length;
       s.xIsNext = !s.xIsNext;
     });
-    this.updateView();
   }
 
   calculateWinner(squares: ISquares) {
@@ -63,10 +59,9 @@ export class GamePresenter extends Presenter<GameModel> {
   }
 
   jumpTo(step: number) {
-    this.model.setState((s) => {
+    this.setState((s) => {
       s.stepNumber = step;
       s.xIsNext = step % 2 === 0;
     });
-    this.updateView();
   }
 }
