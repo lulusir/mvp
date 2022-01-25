@@ -13,6 +13,11 @@ export abstract class Presenter<M> {
     return this.getState();
   }
 
+  setState: P<M>['setState'] = (data) => {
+    const model = Reflect.get(this, 'model');
+    return model.setState(data);
+  };
+
   updateView() {
     throw Error('必须使用useController 绑定controller：');
   }

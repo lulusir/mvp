@@ -74,6 +74,40 @@ describe('Presenter', () => {
     expect(p.__destroy).toBeDefined();
   });
 
+  it('set state, fn', () => {
+    const m = new M();
+    const p = new TestP(m);
+
+    p.setState((s) => {
+      s.a.b.c.push(4);
+    });
+    expect(p.state.a.b.c).toEqual([1, 2, 3, 4]);
+    expect(p.getState()).toBe(m.state);
+    expect(p.state).toBe(m.state);
+    expect(p.updateView).toBeDefined();
+    expect(p.__init).toBeDefined();
+    expect(p.__destroy).toBeDefined();
+  });
+
+  it('set state', () => {
+    const m = new M();
+    const p = new TestP(m);
+
+    p.setState({
+      a: {
+        b: {
+          c: [1, 2, 3, 4],
+        },
+      },
+    });
+    expect(p.state.a.b.c).toEqual([1, 2, 3, 4]);
+    expect(p.getState()).toBe(m.state);
+    expect(p.state).toBe(m.state);
+    expect(p.updateView).toBeDefined();
+    expect(p.__init).toBeDefined();
+    expect(p.__destroy).toBeDefined();
+  });
+
   it('updateView', () => {
     const m = new M();
     const p = new TestP(m);
