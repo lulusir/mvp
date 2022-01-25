@@ -2,7 +2,7 @@
 nav:
   title: API
   path: /api
-  order: 1
+  order: 2
 ---
 
 # Presenter
@@ -20,7 +20,7 @@ import { Presenter, injectable } from '@lujs/mvp';
 
 @injectable()
 export class NamePresenter extends Presenter<NameModel> {
-  constructor(private readonly model: NameModel) {
+  constructor(protected model: NameModel) {
     super();
   }
 
@@ -38,6 +38,7 @@ export class NamePresenter extends Presenter<NameModel> {
 | getState   | 返回 model 中的 state        | () : Model['state'] |        |
 | updateView | 更新 view 的方法             | () : void           |        |
 | state      | getter 返回 model 中的 state | getter              |        |
+| setState   | 等同于 model 的 setState     | Model['setState']   |        |
 
 #### PresenterFactor
 

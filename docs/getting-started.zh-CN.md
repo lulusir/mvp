@@ -45,12 +45,12 @@ export class NameModel extends Model<IViewState> {
 import { Presenter, injectable } from '@lujs/mvp';
 @injectable()
 export class NamePresenter extends Presenter<NameModel> {
-  constructor(private readonly model: OrderModel) {
+  constructor(protected readonly model: OrderModel) {
     super();
   }
 
   changeName() {
-    this.model.setState('aha'); // api of set model state
+    this.setState('aha'); // api of set model state
     this.updateView(); // api of update view
   }
 }

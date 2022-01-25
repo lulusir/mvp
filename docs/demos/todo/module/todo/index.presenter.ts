@@ -5,7 +5,7 @@ import { TodoService } from './index.service';
 entry.init({ useDevTool: true });
 @injectable()
 export class TodoPresenter extends Presenter<TodoModel> {
-  constructor(private model: TodoModel, private service: TodoService) {
+  constructor(protected model: TodoModel, private service: TodoService) {
     super();
   }
 

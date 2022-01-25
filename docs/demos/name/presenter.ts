@@ -3,7 +3,7 @@ import { NameModel } from './model';
 
 @injectable()
 export class NamePresenter extends Presenter<NameModel> {
-  constructor(private readonly model: NameModel) {
+  constructor(protected model: NameModel) {
     super();
   }
 

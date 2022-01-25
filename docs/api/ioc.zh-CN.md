@@ -2,7 +2,7 @@
 nav:
   title: API
   path: /api
-  order: 4
+  order: 1
 ---
 
 # IOC
@@ -17,11 +17,11 @@ nav:
 2. 用 injectable / singleton 装饰
 
 ```typescript
-import { Presenter, injectable } from '@lujs/mvp';
+import { Presenter, injectable, inject } from '@lujs/mvp';
 
 @injectable()
 export class NamePresenter extends Presenter<NameModel> {
-  constructor(private readonly model: NameModel) {
+  constructor(protected model: NameModel, @inject('someService' service: IService)) {
     super();
   }
 
@@ -38,3 +38,4 @@ export class NamePresenter extends Presenter<NameModel> {
 | ---------- | ------------------------------------------------ | ---- | ------ |
 | injectable | 标注要使用依赖注入的类，在容器会自动注入对应的类 |      |        |
 | singleton  | 单例版本，所注入的类都是单例模式                 |      |        |
+| inject     | 用于注入接口                                     |      |        |
