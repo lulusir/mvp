@@ -25,7 +25,6 @@
     "allowJs": true,
     "outDir": "./dist",
     "paths": {
-      "@/*": ["src/*"],
       "@@/*": ["src/.umi/*"]
     }
   },

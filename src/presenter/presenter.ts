@@ -17,7 +17,7 @@ export abstract class Presenter<M> {
   setState: ModelType<M>['setState'] = (data) => this.model.setState(data);
 
   updateView() {
-    throw Error('必须使用useController 绑定controller：');
+    throw Error('Please use adapter to bind view');
   }
 
   __init() {

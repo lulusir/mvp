@@ -6,6 +6,7 @@ import EventEmitter from 'eventemitter3';
 import { devtools } from '../utils/devtool';
 
 setAutoFreeze(true);
+
 interface UpdateFn<S> {
   (state: S): void;
 }

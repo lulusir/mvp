@@ -1,4 +1,4 @@
-import { Constructor } from '@/types/interface';
+import { Constructor } from '../types/interface';
 import { container } from '..';
 
 export class PresenterFactor {

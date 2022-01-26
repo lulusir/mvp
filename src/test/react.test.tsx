@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-param-reassign */
 /* eslint-disable max-classes-per-file */
 
@@ -8,7 +9,10 @@ import '@testing-library/jest-dom';
 import { usePresenter } from '@lujs/react-mvp-adaptor';
 import { injectable, Model, Presenter } from '..';
 
-class IndexModel extends Model<{ loading: boolean }> {
+interface IViewState {
+  loading: boolean;
+}
+class IndexModel extends Model<IViewState> {
   constructor() {
     super();
     this.state = {
@@ -24,20 +28,19 @@ class IndexPresenter extends Presenter<IndexModel> {
   }
 
   changeLoading = () => {
-    console.log('click');
     this.model.setState((s) => {
       s.loading = !s.loading;
     });
-    this.updateView();
   };
 }
 
 const IndexPage = () => {
+  // @ts-ignore
   const { presenter, state } = usePresenter<IndexPresenter>(IndexPresenter);
   return (
     <div>
       <p data-testid="p"> {state.loading && 'loading'}</p>
-
+      {/* @ts-ignore */}
       <button data-testid="change" onClick={presenter.changeLoading}>
         change
       </button>
