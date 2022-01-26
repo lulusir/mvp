@@ -32,7 +32,6 @@
     "@babel/plugin-proposal-decorators": "^7.16.7",
     "@babel/preset-env": "^7.16.5",
     "@babel/preset-typescript": "^7.16.5",
-    "@lujs/react-mvp-adaptor": "^0.3.2",
     "@lujs/upload-image": "^0.0.7",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
@@ -75,6 +74,7 @@
   },
   "dependencies": {
     "@lujs/di": "1.1.3",
+    "@lujs/react-mvp-adaptor": "^0.3.2",
     "eventemitter3": "4.0.7",
     "immer": "9.0.7",
     "reflect-metadata": "0.1.13"
