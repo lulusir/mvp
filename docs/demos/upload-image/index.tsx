@@ -5,17 +5,42 @@ import {
   SelectImageServiceToken,
   UploadServiceToken,
   AbsUploadService,
-  SelectImageServiceBrowserInput,
+  AbsSelectImageService,
+  SelectFnFactor,
+  SelectImageMiddlewareFactor,
 } from '@lujs/upload-image';
 import { usePresenter } from '@lujs/react-mvp-adaptor';
 
 class MyUploadService extends AbsUploadService {
   upload(file) {
-    return Promise.resolve({
-      url: 'xxxurl',
-      name: 'xxx.png',
-      thumbUrl: 'xxx',
+    // 自定义上传功能
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          url: 'xxxurl',
+          name: 'xxx.png',
+          thumbUrl: 'xxx',
+        });
+      }, 1000);
     });
+  }
+}
+
+export class MySelectImageService extends AbsSelectImageService {
+  constructor() {
+    super();
+    // 选图中间件，检查图片大小
+    this.useMiddleware(
+      SelectImageMiddlewareFactor.checkSize({ max: 100 * 1024 }),
+    ); // 限制最大为100k
+  }
+
+  select() {
+    // 自定义选图功能， 使用浏览器的input来选择图片
+    const browserInputSelect = SelectFnFactor.buildBrowserInputSelect({
+      accept: 'image/*',
+    });
+    return browserInputSelect();
   }
 }
 
@@ -30,12 +55,13 @@ const Page = () => {
         },
         {
           token: SelectImageServiceToken,
-          useClass: SelectImageServiceBrowserInput,
+          useClass: MySelectImageService,
         },
       ],
     },
   );
 
+  const [err, setErr] = React.useState(null);
   return (
     <div>
       <h2>fileList</h2>
@@ -46,10 +72,14 @@ const Page = () => {
         <li>url: {state.fileList[0]?.url}</li>
         <li>thumbUrl: {state.fileList[0]?.thumbUrl}</li>
       </ul>
+      <h2>Error</h2>
+      <div>current error :{err?.message}</div>
       <div>
         <button
           onClick={() => {
-            presenter.selectImage();
+            presenter.selectImage().catch((e) => {
+              setErr(e);
+            });
           }}
         >
           selectImage
