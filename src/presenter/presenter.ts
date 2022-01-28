@@ -7,6 +7,9 @@ export abstract class Presenter<M> {
   protected abstract model: ModelType<M>;
 
   getState(): ModelType<M>['state'] {
+    if (!this.model) {
+      throw Error('Please inject Model');
+    }
     return this.model.state;
   }
 
