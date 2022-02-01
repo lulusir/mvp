@@ -12,7 +12,7 @@
   "scripts": {
     "docs:start": "dumi dev",
     "docs:build": "dumi build",
-    "deploy": "gh-pages -d dist",
+    "deploy": " npm run docs:build && gh-pages -d dist",
     "build": "webpack --env production ",
     "start": "webpack --watch ",
     "test": "jest --watch",
